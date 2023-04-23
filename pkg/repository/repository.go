@@ -11,7 +11,9 @@ type (
 		CreateUser(user todo.User) (int, error)
 		GetUser(username, password string) (todo.User, error)
 	}
-	TodoList   interface{}
+	TodoList interface {
+		Create(userId int, list todo.TodoList) (int, error)
+	}
 	TodoItem   interface{}
 	Repository struct {
 		Authorization

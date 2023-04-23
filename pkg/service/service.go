@@ -11,7 +11,9 @@ type (
 		GenerateToken(username, password string) (string, error)
 		ParseToken(token string) (int, error)
 	}
-	TodoList interface{}
+	TodoList interface {
+		Create(userId int, list todo.TodoList) (int, error)
+	}
 	TodoItem interface{}
 	Service  struct {
 		Authorization
